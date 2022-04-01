@@ -1,0 +1,549 @@
+/* ------------------ strt global rules -----------------*/
+:root {
+  --padding-top: 100px;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f1f1f1;
+}
+
+/*--------------------- end global rules -----------------*/
+
+/* ----------------------strt nav -------------------*/
+nav {
+  display: flex;
+  align-items: center;
+  background-color: rgb(29, 29, 29);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+}
+.parent {
+  display: flex;
+  flex-flow: column;
+  width: 30px;
+  height: 20px;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 4;
+}
+.parent span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+
+.parent:hover + aside {
+  width: 50%;
+}
+nav .logo {
+  width: 60px;
+  padding-right: 15px;
+}
+nav .logo img {
+  width: 100%;
+}
+nav ul {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  position: relative;
+  transition: 0.5s;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 30%;
+  transform: translatey(-20%);
+  width: 2px;
+  height: 70%;
+  background-color: white;
+}
+nav ul li a.active {
+  background-color: white;
+  color: rgb(29, 29, 29);
+}
+nav ul li a.active::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #2196f3;
+}
+nav ul li a:hover {
+  background-color: white;
+  color: rgb(29, 29, 29);
+}
+nav ul li:hover a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #2196f3;
+  transition: 2s;
+}
+
+/*--------------------- end nav----------------------------- */
+@media (min-width: 767px) {
+  .parent {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  nav {
+    justify-content: flex-end;
+  }
+  nav ul {
+    display: none;
+  }
+}
+/* ---------------------strt aside ------------------------ */
+aside {
+  width: 300px;
+  position: fixed;
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  transition: 0.5s;
+}
+aside .aside-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 0;
+}
+aside .aside-header .profile {
+  width: 50px;
+  margin-right: 60px;
+}
+aside .aside-header .profile img {
+  width: 100%;
+  border-radius: 50%;
+}
+aside .aside-header .text a {
+  color: black;
+  display: inline-block;
+  padding: 5px 26px 0 0;
+}
+aside hr {
+  margin: 20px 0;
+  visibility: visible;
+}
+aside .dash h5 {
+  font-weight: 400;
+  font-size: 18px;
+  padding: 15px;
+  margin: 5px;
+}
+aside .dash a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 5px 20px;
+  font-weight: 300;
+}
+aside .dash a:hover {
+  background-color: #cacaca;
+}
+
+aside .dash a.active {
+  color: white;
+  background-color: #2196f3;
+}
+aside .dash a.active:hover {
+  color: black;
+  background-color: #cacaca;
+}
+/* ------------------------------end aside ------------------*/
+.container {
+  margin: 50px 0 0 300px;
+  padding: 30px 16px 0;
+}
+@media (max-width: 767px) {
+  aside {
+    width: 0;
+  }
+  .container {
+    margin: 0;
+    padding: 0 15px;
+  }
+}
+/* ------------------------strt dash ----------------------- */
+.dashboard h2 {
+  font-weight: 400;
+  margin: 10px 0;
+  font-size: 22px;
+}
+.dashboard h2::before {
+  content: "\f0ac";
+  font-family: "font awesome 5 free";
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.dashboard .boxs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  flex-flow: row wrap;
+  font-weight: 300;
+}
+.dashboard .boxs .box {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 24%;
+  padding: 20px;
+  font-size: 20px;
+}
+.dashboard .boxs .box:first-child {
+  background-color: #f44236;
+}
+.dashboard .boxs .box:nth-child(2) {
+  background-color: #2196f3;
+}
+.dashboard .boxs .box:nth-child(3) {
+  background-color: #009788;
+}
+
+.dashboard .boxs .box:last-child {
+  background-color: #ff9700;
+}
+.dashboard .boxs .box span,
+.dashboard .boxs .box i {
+  flex-basis: 50%;
+  font-size: 35px;
+  text-align: left;
+}
+.dashboard .boxs .box span {
+  text-align: right;
+  font-size: 24px;
+}
+.dashboard .boxs .box p {
+  margin: 10px 0;
+}
+/* ------------------------end dash ----------------------- */
+@media (max-width: 970px) {
+  .dashboard .boxs .box {
+    width: 49%;
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .dashboard .boxs .box {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+/* ------------------------strt mab ----------------------- */
+
+.mab {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.mab h4 {
+  font-weight: 400;
+  font-size: 20px;
+  margin: 15px 0;
+}
+.mab .mab-mab {
+  flex-basis: 30%;
+}
+.mab .mab-mab img {
+  width: 100%;
+}
+.mab .feeds {
+  flex-basis: 68%;
+}
+
+.mab .feeds table {
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.mab .feeds table tr.clor {
+  background-color: #f1f1f1;
+}
+.mab .feeds table td {
+  padding: 10px;
+}
+.mab .feeds table td:hover {
+  color: white;
+  background-color: black;
+}
+
+/* ------------------------end mab ----------------------- */
+@media (max-width: 960px) {
+  .mab {
+    flex-flow: column;
+  }
+}
+@media (max-width: 767px) {
+  .mab {
+    flex-flow: column;
+  }
+}
+/* ------------------------strt general ----------------------- */
+.general {
+  margin: 20px 0;
+}
+.general h3 {
+  margin: 15px 0;
+  font-weight: 300;
+  font-size: 24px;
+}
+.general .box {
+  margin-top: 20px;
+}
+.general .box p {
+  margin: 20px 0;
+  font-weight: 300;
+}
+.general .box .loading {
+  width: 100%;
+  height: 40px;
+  background-color: #b7b7b7;
+
+  position: relative;
+}
+.general .box.one .loading::before {
+  content: "+25%";
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  left: 15%;
+  z-index: 2;
+}
+.general .box.one .loading::after {
+  content: "";
+  position: absolute;
+  background-color: #009788;
+  width: 25%;
+  height: 100%;
+}
+.general .box.two .loading::before {
+  content: "+50%";
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  left: 40%;
+  z-index: 2;
+}
+.general .box.two .loading::after {
+  content: "";
+  position: absolute;
+  background-color: #f44236;
+  width: 50%;
+  height: 100%;
+}
+.general .box.three .loading::before {
+  content: "+75%";
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  left: 65%;
+  z-index: 2;
+}
+.general .box.three .loading::after {
+  content: "";
+  position: absolute;
+  background-color: #ff9700;
+  width: 75%;
+  height: 100%;
+}
+/* ------------------------end general ----------------------- */
+/* ------------------------strt countres ----------------------- */
+
+hr {
+  margin: 20px 0;
+  visibility: hidden;
+}
+.countries h3 {
+  margin: 16px 0;
+  font-weight: 300;
+  font-size: 24px;
+}
+.countries table {
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid rgb(192, 192, 192);
+}
+.countries table tr.clor {
+  border: 1px solid rgb(192, 192, 192);
+}
+.countries table tr.clor {
+  background-color: #f1f1f1;
+}
+.countries table td {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.countries .button {
+  margin: 30px 0;
+  color: white;
+  background-color: rgb(70, 70, 70);
+  -moz-width: fit-content;
+  -webkit-width: fit-content;
+  width: fit-content;
+}
+.countries .button h3 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px;
+}
+.countries .button h3:hover {
+  color: rgb(59, 59, 59);
+
+  background-color: rgb(219, 219, 219);
+}
+/* ------------------------end countries ----------------------- */
+/*  ------------------------- strt users --------------------- */
+
+.users {
+  padding: 50px 0;
+}
+.users > p {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 16px 0;
+}
+.users .boxs {
+  background-color: white;
+  color: black;
+  box-shadow: 0.5px 0.5px 20px -8px black;
+}
+.users hr {
+  visibility: visible;
+  margin: 5px 0;
+}
+
+.users .boxs .box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px;
+}
+.users .boxs .box img {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+.users .boxs .box p {
+  font-size: 20px;
+  font-weight: 400;
+}
+/*  ------------------------- end users --------------------- */
+/*  ------------------------- strt comment --------------------- */
+.comment > p {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 16px 0;
+}
+.comment .box {
+  display: flex;
+}
+.comment .box img {
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 30px;
+  height: 100px;
+  align-self: center;
+}
+.comment .box .text {
+  text-align: justify;
+}
+.comment .box .text h4 {
+  margin: 16px 0;
+  font-size: 16px;
+  font-weight: 200;
+}
+.comment .box .text h4 span {
+  font-size: 20px;
+  font-weight: 300;
+}
+.comment .box .text p {
+  margin: 16px 0;
+}
+
+/*  ------------------------- end comment --------------------- */
+.the-end {
+  margin: 50px 0;
+  display: flex;
+  background-color: rgb(82, 82, 82);
+  color: white;
+  padding: 30px;
+}
+.the-end .box {
+  flex-basis: 33.33333%;
+  position: relative;
+}
+.the-end .box h4 {
+  font-size: 24px;
+  margin: 0 0 16px 0;
+  font-weight: 300;
+}
+.the-end .box h4::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 5px;
+  background-color: green;
+  left: 0;
+  top: 35px;
+}
+.the-end .box p {
+  margin: 20px 0;
+  font-weight: 200;
+}
+
+footer {
+  background-color: rgb(37, 37, 37);
+  color: white;
+  text-align: center;
+}
+footer p {
+  padding: 10px;
+}
+footer p span {
+  color: rgb(255, 107, 107);
+  font-weight: bold;
+}
